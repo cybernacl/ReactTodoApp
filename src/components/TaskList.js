@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// eslint-disable-next-line
 import TaskItem from "./TaskItem";
 
 export default class TaskList extends Component {
