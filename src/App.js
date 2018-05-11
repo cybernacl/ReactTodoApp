@@ -1,24 +1,27 @@
-import React, { Component } from 'react';
-import './App.css';
-
-import InputTask from './components/InputTask';
-import TaskList from './components/TaskList';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "./App.css";
+import InputTask from "./components/InputTask";
+import TaskList from "./components/TaskList";
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    this.addTaskToList = this.addTaskToList.bind(this);
   }
-  addTask(task) {
+
+  addTaskToList(task) {
     console.log(task);
   }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">TODO App {`Ver${this.props.version}`}</h1>
         </header>
-        <section>
-          <InputTask onNewTask={this.addTask} />
+        <section className="App-body">
+          <InputTask onNewTask={this.addTaskToList} />
           <TaskList />
         </section>
       </div>
@@ -27,3 +30,11 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  version: PropTypes.string
+};
+
+App.defaultProps = {
+  version: "0.X.0"
+};

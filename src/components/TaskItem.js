@@ -1,24 +1,26 @@
-import React, { Component } from 'react';
-
+import React, { Component } from "react";
 
 export default class TaskItem extends Component {
   constructor() {
     super();
-    this.state = {    // task
-      name: '',
+    this.state = {
+      name: "",
       completed: false,
-      start_date : 0, // number
-      end_date: 0     // number
+      startDate: 0, // number
+      endDate: 0 // number
     };
   }
+
   render() {
-    // let {name, start_date} = this.state;
+    const { name, startDate } = this.state;
     return (
       <li>
-        <span>{`${this.state.name} - ${this.state.start_date}`}</span>
+        <span>
+          <s>{`${name} - ${startDate}`}</s>
+        </span>
         <button className="task-edit">EDIT</button>
         <button className="task-del">DEL</button>
       </li>
     );
   }
-};
+}
