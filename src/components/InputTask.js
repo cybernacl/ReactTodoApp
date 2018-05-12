@@ -4,22 +4,20 @@ import PropTypes from "prop-types";
 export default class InputTask extends Component {
   constructor(props) {
     super(props);
-    this.inputText = "";
-    this.state = { inputText: "" };
+    this.state = { text: "" };
     this.commingText = this.commingText.bind(this);
     this.fireEventNewTask = this.fireEventNewTask.bind(this);
   }
 
   commingText(event) {
-    this.inputText = event.target.value;
-    this.setState({ inputText: this.inputText });
+    this.setState({ text: event.target.value });
   }
 
   fireEventNewTask() {
     const { onNewTask } = this.props;
-    if (onNewTask && this.inputText) {
-      onNewTask(this.inputText);
-      this.setState({ inputText: "" });
+    if (onNewTask) {
+      onNewTask(this.state.text);
+      this.setState({ text: "" });
     }
   }
 
@@ -30,7 +28,7 @@ export default class InputTask extends Component {
           type="text"
           id="new-task"
           onChange={this.commingText}
-          value={this.state.inputText}
+          value={this.state.text}
         />
         <button id="add-task" onClick={this.fireEventNewTask}>
           ADD
