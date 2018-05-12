@@ -5,8 +5,10 @@ export default class TaskItem extends Component {
     super();
     this.state = {
       name: "",
+      // eslint-disable-next-line
       completed: false,
       startDate: 0, // number
+      // eslint-disable-next-line
       endDate: 0 // number
     };
   }
