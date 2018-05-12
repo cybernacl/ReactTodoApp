@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-// eslint-disable-next-line
 import TaskItem from "./TaskItem";
 
 export default class TaskList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      tasks: []
     };
   }
 
   addTask(task) {
-    this.state.list.push(task); // mutable!!
-    return this.state.list.indexOf(task);
+    this.setState(prevState => ({ tasks: prevState.concat(task) }));
   }
 
   delTask(index) {
@@ -20,6 +18,6 @@ export default class TaskList extends Component {
   }
 
   render() {
-    return <ul />;
+    return <ul>{this.state.tasks.map(task => <TaskItem name={task} />)}</ul>;
   }
 }
