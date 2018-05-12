@@ -1,14 +1,13 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class TaskItem extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      name: "",
-      // eslint-disable-next-line
+      name: props.name,
       completed: false,
-      startDate: 0, // number
-      // eslint-disable-next-line
+      startDate: Date.now(),
       endDate: 0 // number
     };
   }
@@ -26,3 +25,11 @@ export default class TaskItem extends Component {
     );
   }
 }
+
+TaskItem.propTypes = {
+  name: PropTypes.string
+};
+
+TaskItem.defaultProps = {
+  name: ""
+};
