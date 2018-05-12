@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
+const date = millis => new Date(millis).toDateString();
+
 export default class TaskItem extends Component {
   constructor(props) {
     super(props);
@@ -16,11 +18,10 @@ export default class TaskItem extends Component {
     const { name, startDate } = this.state;
     return (
       <li>
-        <span>
-          <s>{`${name} - ${startDate}`}</s>
-        </span>
-        <button className="task-edit">EDIT</button>
-        <button className="task-del">DEL</button>
+        {name}
+        <span className="Task-date">{date(startDate)}</span>
+        <button className="Task-edit">EDIT</button>
+        <button className="Task-del">DEL</button>
       </li>
     );
   }

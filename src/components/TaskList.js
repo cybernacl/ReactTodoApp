@@ -10,7 +10,7 @@ export default class TaskList extends Component {
   }
 
   addTask(task) {
-    this.setState(prevState => ({ tasks: prevState.concat(task) }));
+    this.setState(prevState => ({ tasks: prevState.tasks.concat(task) }));
   }
 
   delTask(index) {

@@ -11,7 +11,7 @@ class App extends Component {
   }
 
   addTaskToList(task) {
-    console.log(task);
+    this.taskList.addTask(task);
   }
 
   render() {
@@ -22,7 +22,11 @@ class App extends Component {
         </header>
         <section className="App-body">
           <InputTask onNewTask={this.addTaskToList} />
-          <TaskList />
+          <TaskList
+            ref={ref => {
+              this.taskList = ref;
+            }}
+          />
         </section>
       </div>
     );
