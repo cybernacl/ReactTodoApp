@@ -5,12 +5,14 @@ import InputTask from './components/InputTask';
 import TaskList from './components/TaskList';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
+
   addTask(task) {
     console.log(task);
   }
+
   render() {
     return (
       <div className="App">
