@@ -1,21 +1,24 @@
+// eslint-disable-next-line
 import React, { Component } from 'react';
-
+import shortId from 'shortid';
 
 export default class TaskItem extends Component {
-  constructor() {
-    super();
-    this.state = {    // task
-      name: '',
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: shortId.generate(),
+      name: props.name,
       completed: false,
-      start_date : 0, // number
-      end_date: 0     // number
+      startDate: Date.now(),
+      endDate: 0
     };
   }
+
   render() {
-    // let {name, start_date} = this.state;
+    const { name, startDate } = this.state;
     return (
       <li>
-        <span>{`${this.state.name} - ${this.state.start_date}`}</span>
+        <span>{name} - {startDate}</span>
         <button className="task-edit">EDIT</button>
         <button className="task-del">DEL</button>
       </li>

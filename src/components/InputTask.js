@@ -10,11 +10,9 @@ export default class InputTask extends React.Component {
   }
 
   fireEventNewTask() {
-    const onNewTask = this.props.onNewTask;
-    if (onNewTask) {
-      onNewTask(this.state.value);
-      this.setState({ value: '' });
-    }
+    const { onNewTask } = this.props;
+    onNewTask(this.state.value);
+    this.setState({ value: '' });
   }
 
   inputText(e) {
@@ -36,5 +34,5 @@ InputTask.propTypes = {
 };
 
 InputTask.defaultProps = {
-  onNewTask: () => console.error("You don't have a event handler.")
+  onNewTask: () => console.error("You don't have any event handler.")
 };
