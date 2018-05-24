@@ -27,12 +27,8 @@ export default class InputTask extends React.Component {
       </div>
     );
   }
-};
+}
 
 InputTask.propTypes = {
   onNewTask: PropTypes.func
-};
-
-InputTask.defaultProps = {
-  onNewTask: () => console.error("You don't have any event handler.")
 };

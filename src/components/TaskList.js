@@ -23,4 +23,4 @@ export default class TaskList extends Component {
       <ul></ul>
     );
   }
-};
+}

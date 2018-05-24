@@ -2,8 +2,12 @@
   "plugins": [
     "react"
   ],
-  "extends": ["eslint:all", "plugin:react/all"],
+  "extends": [
+    "eslint:recommended", 
+    "plugin:react/recommended"
+  ],
   "rules": {
-      "quotes": ["error", "single"]
+      "quotes": ["error", "single"],
+      "no-console": 0
   }
 }

@@ -1,6 +1,6 @@
-// eslint-disable-next-line
 import React, { Component } from 'react';
 import shortId from 'shortid';
+import PropTypes from 'prop-types';
 
 export default class TaskItem extends Component {
   constructor(props) {
@@ -24,4 +24,8 @@ export default class TaskItem extends Component {
       </li>
     );
   }
+}
+
+TaskItem.propTypes = {
+  name: PropTypes.string.isRequired
 };
