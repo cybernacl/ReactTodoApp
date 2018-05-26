@@ -1,24 +1,35 @@
 import React, { Component } from 'react';
-import shortId from 'shortid';
 import PropTypes from 'prop-types';
+import './TaskItem.css';
 
 export default class TaskItem extends Component {
   constructor(props) {
     super(props);
+    this.toggleStatus = this.toggleStatus.bind(this);
     this.state = {
-      id: shortId.generate(),
-      name: props.name,
+      id: props.id,
+      content: props.content,
       completed: false,
-      startDate: Date.now(),
+      startDate: Date.now(), // millis
       endDate: 0
     };
   }
 
+  toggleStatus(e) {
+    this.setState((prevState) => {
+      const newCompleted = !prevState.completed;
+      return { ...prevState, completed: newCompleted };
+    })
+  }
+
   render() {
-    const { name, startDate } = this.state;
+    const { content, startDate } = this.state;
     return (
       <li>
-        <span>{name} - {startDate}</span>
+        <span onClick={this.toggleStatus}
+          className={this.state.completed ? "completed": ""}>
+          {content} - {startDate}
+        </span>
         <button className="task-edit">EDIT</button>
         <button className="task-del">DEL</button>
       </li>
@@ -27,5 +38,7 @@ export default class TaskItem extends Component {
 }
 
 TaskItem.propTypes = {
-  name: PropTypes.string.isRequired
+  id: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired
 };
+

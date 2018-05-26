@@ -7,10 +7,11 @@ import TaskList from './components/TaskList';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.addTask = this.addTask.bind(this);
   }
 
   addTask(task) {
-    console.log(task);
+    this.taskList.addTask(task);
   }
 
   render() {
@@ -21,7 +22,7 @@ class App extends Component {
         </header>
         <section>
           <InputTask onNewTask={this.addTask} />
-          <TaskList />
+          <TaskList ref={(e) => this.taskList = e} />
         </section>
       </div>
     );
